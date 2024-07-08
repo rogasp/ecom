@@ -38,7 +38,9 @@ class AdminPanelProvider extends PanelProvider
                 Pages\Dashboard::class,
             ])
             ->plugins([
-                FilamentTranslationsPlugin::make(),
+                FilamentTranslationsPlugin::make()
+                    ->allowClearTranslations()
+                    ->allowGPTScan(),
                 FilamentTranslationsSwitcherPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
