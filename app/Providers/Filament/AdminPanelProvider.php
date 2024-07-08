@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -29,8 +30,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->databaseNotifications()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Cyan,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -40,8 +42,12 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentTranslationsPlugin::make()
                     ->allowClearTranslations()
+                    #->allowGoogleTranslateScan()
                     ->allowGPTScan(),
                 FilamentTranslationsSwitcherPlugin::make(),
+                FilamentJobsMonitorPlugin::make()
+                ->enableNavigation()
+                ->enablePruning(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

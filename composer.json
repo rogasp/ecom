@@ -6,13 +6,16 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "croustibat/filament-jobs-monitor": "^2.5",
         "filament/filament": "^3.2",
+        "filament/notifications": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/jetstream": "^5.1",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
         "openai-php/laravel": "^0.10.1",
+        "stichoza/google-translate-php": "^5.1",
         "tomatophp/filament-translations": "^1.0"
     },
     "require-dev": {
