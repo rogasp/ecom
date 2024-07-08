@@ -1,0 +1,257 @@
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "cache" does not exist
+LINE 1: select * from "cache" where "key" = $1 limit 1
+                      ^ (Connection: pgsql, SQL: select * from "cache" where "key" = illuminate:queue:restart limit 1)
+
+  at /home/roger/source/laravel/ecom/vendor/laravel/framework/src/Illuminate/Database/Connection.php:813
+    809▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810▕                 );
+    811▕             }
+    812▕ 
+  ➜ 813▕             throw new QueryException(
+    814▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815▕             );
+    816▕         }
+    817▕     }
+
+      [2m+29 vendor frames [22m
+
+  30  /home/roger/source/laravel/ecom/artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+  2024-07-08 11:29:04 TomatoPHP\FilamentTranslations\Jobs\ScanJob .... RUNNING
+  2024-07-08 11:29:04 TomatoPHP\FilamentTranslations\Jobs\ScanJob  185.87ms FAIL
+  2024-07-08 11:36:17 TomatoPHP\FilamentTranslations\Jobs\ScanJob .... RUNNING
+  2024-07-08 11:36:17 TomatoPHP\FilamentTranslations\Jobs\ScanJob  181.68ms FAIL

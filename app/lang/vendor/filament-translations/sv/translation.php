@@ -1,0 +1,47 @@
+<?php
+
+return [
+    "title" => [
+        "home" => "Översättningar",
+        "list" => "Översättningar",
+        "create" => "Skapa översättning",
+        "edit" => "Redigera översättning",
+    ],
+    "label" => "Översättningar",
+    "single" => "Översättning",
+    "group" => "Översättningar",
+    "gpt_scan_language" => "Språk",
+    "gpt_scan" => "Använd GPT",
+    "gpt_scan_notification_start" => "GPT-genomsökning har startats",
+    "gpt_scan_notifications_done" => "GPT-genomsökning har slutförts",
+    "google_scan" => "Använd Google Translate",
+    "google_scan_notifications_start" => "Google Translate-genomsökning har startats",
+    "google_scan_notifications_done" => "Google Translate-genomsökning har slutförts",
+    "clear_notifications" => "Översättningar har rensats",
+    "clear" => "Rensa alla översättningar",
+    "key" => "Nyckel",
+    "text" => "Text",
+    "scan" => "Sök efter nya språk",
+    "namespace" => "Namnrymd",
+    "notification" => "Språket har ändrats framgångsrikt",
+    "loaded" => "Översättningslistan har uppdaterats",
+    "uploaded" => "Översättningarna har laddats upp framgångsrikt",
+    "import" => "Importera",
+    "export" => "Exportera",
+    "import-file" => "Välj exporterad fil efter översättning",
+    "menu" => "Byt språk",
+    "modal" => [
+        "heading" => "Uppdatera aktuellt språk",
+        "button" => "Spara, språk",
+        "setting" => "Inställningar",
+        "select" => "Språk",
+    ],
+    "lang" => [
+        "ar" => "Arabiska",
+        "en" => "Engelska",
+        "pt_BR" => "Portugisiska (Brasilien)",
+        "my" => "Burmesiska",
+        "de" => "Tyska",
+        "sv" => "Svenska",
+    ]
+];
