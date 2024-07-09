@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Jobs\UpdateCurrenciesJob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Currency extends Model
 {
@@ -23,9 +25,23 @@ class Currency extends Model
     {
         parent::boot();
 
-        static::saving(function ($currency) {
+        static::creating(function ($currency) {
             if ($currency->is_default) {
                 static::where('is_default', true)->update(['is_default' => false]);
+            }
+        });
+
+        static::updating(function ($currency) {
+            if ($currency->is_default) {
+                static::where('is_default', true)
+                    ->where('id', '!=', $currency->id)
+                    ->update(['is_default' => false]);
+            }
+        });
+
+        static::updated(function ($currency) {
+            if ($currency->wasChanged('is_default') && $currency->is_default) {
+                UpdateCurrenciesJob::dispatch();
             }
         });
     }

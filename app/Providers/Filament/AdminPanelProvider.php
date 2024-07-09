@@ -32,6 +32,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->sidebarCollapsibleOnDesktop()
             ->databaseNotifications()
+            ->databaseNotificationsPolling('5s')
             ->colors([
                 'primary' => Color::Cyan,
             ])

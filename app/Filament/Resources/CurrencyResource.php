@@ -34,6 +34,7 @@ class CurrencyResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->deferLoading()
             ->columns([
                 TextColumn::make('iso')
                     ->searchable()
@@ -42,11 +43,16 @@ class CurrencyResource extends Resource
                     ->searchable()
                     ->sortable(),
                     TextColumn::make('exchange_rate')
+                        ->alignRight()
                         ->label('Rate'),
                 TextColumn::make('updated_at')
                     ->label('Updated')
                     ->dateTime(),
-                ToggleColumn::make('is_default'),
+                ToggleColumn::make('is_default')
+                    ->action(function (Currency $record, $state) {
+                        $this->emit('confirmToggle', $record->id, $state);
+                        return false; // Prevent automatic state change
+                    }),
                 ToggleColumn::make('is_active')
             ])
             ->filters([

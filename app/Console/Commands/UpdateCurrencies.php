@@ -67,8 +67,6 @@ class UpdateCurrencies extends Command
                     ]
                 );
             }
-
-            $this->info('Currencies updated successfully.');
         } else {
             $this->error('Failed to fetch currency data.');
         }
