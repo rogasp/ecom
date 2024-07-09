@@ -35,4 +35,7 @@ return [
         ],
     ],
 
+    'fallback_currency' => env('FALLBACK_CURRENCY', 'USD'),
+    'exchangerate_api_key' => env('EXCHANGERATE_API_KEY', ''),
+
 ];
