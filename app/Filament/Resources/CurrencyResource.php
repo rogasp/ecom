@@ -11,6 +11,8 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -34,17 +36,18 @@ class CurrencyResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('iso')
-                ->searchable()
-                ->sortable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('name')
-                ->searchable()
-                ->sortable(),
-                TextColumn::make('exchange_rate')
-                ->label('Rate'),
+                    ->searchable()
+                    ->sortable(),
+                    TextColumn::make('exchange_rate')
+                        ->label('Rate'),
                 TextColumn::make('updated_at')
-                ->label('Updated'),
+                    ->label('Updated')
+                    ->dateTime(),
                 ToggleColumn::make('is_default'),
-                ToggleColumn::make('is_active'),
+                ToggleColumn::make('is_active')
             ])
             ->filters([
                 //
