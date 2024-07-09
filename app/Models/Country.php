@@ -16,6 +16,11 @@ class Country extends Model
         return $this->belongsTo(Currency::class, 'currency_iso', 'iso');
     }
 
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
+
     public function getFlagUrlAttribute()
     {
         $flags = json_decode($this->flags, true);

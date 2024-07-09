@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "codeat3/blade-govicons": "^1.4",
         "croustibat/filament-jobs-monitor": "^2.5",
+        "davidhsianturi/blade-bootstrap-icons": "^1.5",
         "filament/filament": "^3.2",
         "filament/notifications": "^3.2",
         "laravel/framework": "^11.9",
@@ -15,6 +17,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
         "openai-php/laravel": "^0.10.1",
+        "predis/predis": "^2.2",
         "stichoza/google-translate-php": "^5.1",
         "tomatophp/filament-translations": "^1.0"
     },

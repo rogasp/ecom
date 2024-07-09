@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Jobs\UpdateCurrenciesJob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Log;
 
 class Currency extends Model
 {
@@ -19,6 +18,7 @@ class Currency extends Model
     {
         return $this->hasMany(Country::class);
     }
+
 
     // Ensure only one default currency
     public static function boot()
