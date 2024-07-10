@@ -62,9 +62,11 @@ class CountryResource extends Resource
                                             ->required()
                                             ->disabled(),
                                         ImageView::make('flag_url')
-                                            ->url('')
                                             ->width(50)
-                                            ->height(30),
+                                            ->height(30)
+                                            ->loadStateUsing(function ($record, $state) {
+                                                return $record->flag_url;
+                                            }),
 
                                         TextInput::make('cca2')
                                             ->label(__('CCA2'))

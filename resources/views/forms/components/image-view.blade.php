@@ -1,16 +1,16 @@
+<!-- resources/views/forms/components/image-view.blade.php -->
 <x-dynamic-component
     :component="$getFieldWrapperView()"
     :field="$field"
-    :width="$width"
-    :height="$height"
-    :url="$url"
+    :width="$viewData('width')"
+    :height="$viewData('height')"
+    :url="$viewData('url')"
 >
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
-        <!-- Interact with the `state` property in Alpine.js -->
         <img
-            src="{{ $url }}"
+            src="{{ $viewData['url'] }}"
             alt="Bild"
-            style="width: {{ $width }}px; height: {{ $height }}px;"
+            style="width: {{ $viewData['width'] }}px; height: {{ $viewData['height'] }}px;"
             class="max-w-xs h-auto"
         />
     </div>
