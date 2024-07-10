@@ -2,6 +2,7 @@
 
 namespace App\Forms\Components;
 
+use Closure;
 use Filament\Forms\Components\ViewField;
 
 class ImageView extends ViewField
@@ -18,8 +19,9 @@ class ImageView extends ViewField
         return $this->viewData(['height' => $height]);
     }
 
-    public function url(string $url): self
+    public function url( string $url): self
     {
         return $this->viewData(['url' => $url]);
     }
 }
+

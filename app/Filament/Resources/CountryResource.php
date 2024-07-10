@@ -61,8 +61,8 @@ class CountryResource extends Resource
                                             ->label(__('Capital'))
                                             ->required()
                                             ->disabled(),
-                                        ImageView::make('ImageView')
-                                            ->url('https://flagcdn.com/dk.svg')
+                                        ImageView::make('flag_url')
+                                            ->url('')
                                             ->width(50)
                                             ->height(30),
 
