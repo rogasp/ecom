@@ -11,6 +11,9 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -38,6 +41,8 @@ class CountryResource extends Resource
                     ->width(50)
                     ->height(30),
                 TextColumn::make('common_name')
+                    ->sortable()
+                    ->searchable()
                     ->label('Name'),
                 TextColumn::make('cca2')
                     ->label('Code')
@@ -51,9 +56,17 @@ class CountryResource extends Resource
                     ->label('Subregion')
                     ->sortable()
                     ->searchable(),
+                ToggleColumn::make('is_active')
+                    ->label('Active'),
             ])
             ->filters([
-                //
+                SelectFilter::make('is_active')
+                    ->label(__('Status'))
+                    ->default()
+                    ->options([
+                    true => __('Active'),
+                    false => __('Inactive')
+                ])
             ])
             ->modifyQueryUsing(function (Builder $query) {
                 if ($search = request('tableSearch')) {

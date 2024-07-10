@@ -36,7 +36,7 @@ class CityResource extends Resource
                 TextColumn::make('name')->sortable()->searchable(),
                 TextColumn::make('latitude')->sortable(),
                 TextColumn::make('longitude')->sortable(),
-                TextColumn::make('country.common_name')->label('Country'),
+                TextColumn::make('country.common_name')->sortable()->searchable()->label('Country'),
             ])
             ->filters([
                 //
