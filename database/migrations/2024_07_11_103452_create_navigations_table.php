@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('bg_color');
             $table->json('items');
             $table->json('items_sidebar')->nullable();
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

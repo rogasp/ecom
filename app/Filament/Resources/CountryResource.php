@@ -82,7 +82,7 @@ class CountryResource extends Resource
                                     ->content(function ($record) {
                                         return view('livewire.image-view', [
                                             'url' => $record->flag_url,
-                                            'width' => 50,
+                                            'width' => 100,
                                             'height' => 30,
                                         ]);
                                     }),
@@ -110,8 +110,8 @@ class CountryResource extends Resource
             ->columns([
                 ImageColumn::make('flag_url')
                     ->label(__('Flag'))
-                    ->width(50)
-                    ->height(30),
+                    ->width(30)
+                    ->height(18),
                 TextColumn::make('common_name')
                     ->sortable()
                     ->searchable()
