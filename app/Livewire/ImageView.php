@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class ImageView extends Component
@@ -19,6 +20,7 @@ class ImageView extends Component
 
     public function render()
     {
+
         return view('livewire.image-view');
     }
 }

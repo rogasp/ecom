@@ -25,6 +25,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Log;
 use Livewire\Livewire;
 
 class CountryResource extends Resource
@@ -90,6 +91,7 @@ class CountryResource extends Resource
                                 Placeholder::make('flag_url')
                                     ->label(__('Flag'))
                                     ->content(function ($record) {
+
                                         return view('livewire.image-view', [
                                             'url' => $record->flag_url,
                                             'width' => 50,
@@ -152,7 +154,7 @@ class CountryResource extends Resource
             ])
             ->defaultSort('common_name')
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->slideOver(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

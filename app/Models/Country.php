@@ -24,7 +24,6 @@ class Country extends Model
     public function getZipFormatAttribute()
     {
         $zipFormat = json_decode($this->postalCode,true);
-        Log::info($zipFormat);
         return isset($zipFormat['format']) ? trim($zipFormat['format']) : null;
     }
 
