@@ -21,12 +21,23 @@ class Country extends Model
         return $this->hasMany(City::class);
     }
 
+    public function getZipFormatAttribute()
+    {
+        $zipFormat = json_decode($this->postalCode,true);
+        Log::info($zipFormat);
+        return isset($zipFormat['format']) ? trim($zipFormat['format']) : null;
+    }
+
     public function getFlagUrlAttribute()
     {
         $flags = json_decode($this->flags, true);
-        $flagUrl = isset($flags['svg']) ? trim($flags['svg']) : null;
+        return isset($flags['svg']) ? trim($flags['svg']) : null;
+    }
 
-        return $flagUrl;
+    public function getCoatOfArmsUrlAttribute()
+    {
+        $coatOfArms = json_decode($this->coatOfArms, true);
+        return isset($coatOfArms['png']) ? trim($coatOfArms['png']) : null;
     }
 
 }

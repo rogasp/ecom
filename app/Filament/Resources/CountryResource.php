@@ -4,10 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CountryResource\Pages;
 use App\Filament\Resources\CountryResource\RelationManagers;
-use App\Forms\Components\ImageView;
 use App\Models\Country;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Forms\Components\TextInput;
@@ -25,6 +25,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Livewire;
 
 class CountryResource extends Resource
 {
@@ -50,31 +51,9 @@ class CountryResource extends Resource
                                             ->columnSpan(2)
                                             ->required()
                                             ->disabled(),
-                                        Toggle::make('independent')
-                                            ->label(__('Independent'))
-                                            ->disabled(),
-                                        Toggle::make('un_member')
-                                            ->label(__('UN Member'))
-                                            ->disabled(),
                                         TextInput::make('capital')
                                             ->columnSpan(2)
                                             ->label(__('Capital'))
-                                            ->required()
-                                            ->disabled(),
-                                        ImageView::make('flag_url')
-                                            ->width(50)
-                                            ->height(30)
-                                            ->loadStateUsing(function ($record, $state) {
-                                                return $record->flag_url;
-                                            }),
-
-                                        TextInput::make('cca2')
-                                            ->label(__('CCA2'))
-                                            ->required()
-                                            ->maxLength(2)
-                                            ->disabled(),
-                                        TextInput::make('status')
-                                            ->label(__('Status'))
                                             ->required()
                                             ->disabled(),
                                         TextInput::make('region')
@@ -86,114 +65,47 @@ class CountryResource extends Resource
                                             ->label(__('Subregion'))
                                             ->columnSpan(2)
                                             ->disabled(),
-
-                                        TextInput::make('ccn3')
-                                            ->label(__('CCN3'))
+                                        TextInput::make('cca2')
+                                            ->label(__('CCA2'))
                                             ->required()
-                                            ->maxLength(3)
+                                            ->maxLength(2)
                                             ->disabled(),
                                         TextInput::make('cca3')
                                             ->label(__('CCA3'))
                                             ->required()
                                             ->maxLength(3)
                                             ->disabled(),
-                                        TextInput::make('cioc')
-                                            ->label(__('CIOC'))
-                                            ->maxLength(3)
-                                            ->disabled(),
-
-                                        Textarea::make('languages')
-                                            ->label(__('Languages'))
-                                            ->required()
-                                            ->disabled(),
-                                        Textarea::make('translations')
-                                            ->label(__('Translations'))
-                                            ->required()
-                                            ->disabled(),
-                                        Textarea::make('latlng')
-                                            ->label(__('Lat/Lng'))
-                                            ->required()
-                                            ->disabled(),
-
-                                        Textarea::make('demonyms')
-                                            ->label(__('Demonyms'))
-                                            ->required()
-                                            ->disabled(),
-                                        TextInput::make('flag')
-                                            ->label(__('Flag'))
-                                            ->required()
-                                            ->disabled(),
-                                        Textarea::make('maps')
-                                            ->label(__('Maps'))
-                                            ->required()
-                                            ->disabled(),
-
-                                        Textarea::make('timezones')
-                                            ->label(__('Timezones'))
-                                            ->required()
-                                            ->disabled(),
-                                        Textarea::make('continents')
-                                            ->label(__('Continents'))
-                                            ->required()
-                                            ->disabled(),
-                                        Textarea::make('flags')
-                                            ->label(__('Flags'))
-                                            ->required()
-                                            ->disabled(),
-                                        Textarea::make('coatOfArms')
-                                            ->label(__('Coat of Arms'))
-                                            ->disabled(),
-                                        TextInput::make('startOfWeek')
-                                            ->label(__('Start of Week'))
-                                            ->required()
-                                            ->disabled(),
-                                        Textarea::make('capitalInfo')
-                                            ->label(__('Capital Info'))
-                                            ->disabled(),
-                                        Textarea::make('postalCode')
-                                            ->label(__('Postal Code'))
-                                            ->disabled(),
+                                        Placeholder::make('zip_format')
+                                        ->label(__('Zip Format'))
+                                        ->content(function ($record) {
+                                            return $record->zip_format;
+                                        }),
+                                        Placeholder::make('')
+                                            ->columnSpan(1),
                                     ])
                             ])->columnSpan(2), // Vänster kolumn tar upp 2/3 av utrymmet
                         // Höger kolumn (1/3)
                         Section::make(__('Additional Info'))
                             ->schema([
-                                TextInput::make('tld')
-                                    ->label(__('TLD'))
-                                    ->required()
-                                    ->disabled(),
-                                Textarea::make('currencies')
-                                    ->label(__('Currencies'))
-                                    ->required()
-                                    ->disabled(),
-                                Textarea::make('idd')
-                                    ->label(__('IDD'))
-                                    ->required()
-                                    ->disabled(),
-                                Toggle::make('landlocked')
-                                    ->label(__('Landlocked'))
-                                    ->disabled(),
-                                TextInput::make('area')
-                                    ->label(__('Area'))
-                                    ->numeric()
-                                    ->required()
-                                    ->disabled(),
-                                TextInput::make('population')
-                                    ->label(__('Population'))
-                                    ->numeric()
-                                    ->required()
-                                    ->disabled(),
-                                Textarea::make('gini')
-                                    ->label(__('Gini'))
-                                    ->disabled(),
-                                TextInput::make('fifa')
-                                    ->label(__('FIFA'))
-                                    ->maxLength(3)
-                                    ->disabled(),
-                                Textarea::make('car')
-                                    ->label(__('Car'))
-                                    ->required()
-                                    ->disabled(),
+                                Placeholder::make('flag_url')
+                                    ->label(__('Flag'))
+                                    ->content(function ($record) {
+                                        return view('livewire.image-view', [
+                                            'url' => $record->flag_url,
+                                            'width' => 50,
+                                            'height' => 30,
+                                        ]);
+                                    }),
+                                Placeholder::make('coat_of_arms_url')
+                                    ->label(__('Coat of Arms'))
+                                    ->content(function ($record) {
+                                        return view('livewire.image-view', [
+                                            'url' => $record->coat_of_arms_url,
+                                            'width' => 200,
+                                            'height' => 180,
+                                        ]);
+                                    }),
+
                             ])->columnSpan(1), // Höger kolumn tar upp 1/3 av utrymmet
                     ])->columns(3),
             ]);
