@@ -14,20 +14,38 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @foreach($navigationItems as $item)
-                        <x-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
-                            {{ $item['title'] }}
-                        </x-nav-link>
-                    @endforeach
-                </div>
-                @guest()
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        @foreach($navigationItemsSidebar as $item)
+                        @if($item['show_for'] === 'public' && !auth()->user())
                             <x-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
                                 {{ $item['title'] }}
                             </x-nav-link>
+                        @elseif($item['show_for'] === 'everyone')
+                            <x-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                                {{ $item['title'] }}
+                            </x-nav-link>
+                        @elseif($item['show_for'] === 'users' && auth()->user())
+                            <x-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                                {{ $item['title'] }}
+                            </x-nav-link>
+                        @endif
+                    @endforeach
+                </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        @foreach($navigationItemsSidebar as $item)
+                            @if($item['show_for'] === 'public' && !auth()->user())
+                                <x-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                                    {{ $item['title'] }}
+                                </x-nav-link>
+                            @elseif($item['show_for'] === 'everyone')
+                                <x-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                                    {{ $item['title'] }}
+                                </x-nav-link>
+                            @elseif($item['show_for'] === 'users' && auth()->user())
+                                <x-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                                    {{ $item['title'] }}
+                                </x-nav-link>
+                            @endif
                         @endforeach
                     </div>
-                @endguest
             </div>
 
             @auth
@@ -154,9 +172,19 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             @foreach($navigationItems as $item)
-                <x-responsive-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
-                    {{ $item['title'] }}
-                </x-responsive-nav-link>
+                @if($item['show_for'] === 'public' && !auth()->user())
+                    <x-responsive-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                        {{ $item['title'] }}
+                    </x-responsive-nav-link>
+                @elseif($item['show_for'] === 'everyone')
+                    <x-responsive-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                        {{ $item['title'] }}
+                    </x-responsive-nav-link>
+                @elseif($item['show_for'] === 'users' && auth()->user())
+                    <x-responsive-nav-link href="{{ route($item['url']) }}" :active="request()->routeIs($item['url'])">
+                        {{ $item['title'] }}
+                    </x-responsive-nav-link>
+                @endif
             @endforeach
         </div>
 

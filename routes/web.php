@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
+Route::get('/categories/{category:slug}', CategoryController::class)->name('category.show');
 
 Route::middleware([
     'auth:sanctum',

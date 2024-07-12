@@ -3,12 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\NavigationResource\Pages;
-use App\Filament\Resources\NavigationResource\RelationManagers;
 use App\Models\Navigation;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -38,6 +38,12 @@ class NavigationResource extends Resource
                             ->placeholder('/example-page'),
                         Checkbox::make('external_link')
                             ->label('Open in new tab'),
+                        Select::make('show_for')
+                            ->options([
+                                'users' => 'Users',
+                                'everyone' => 'Everyone',
+                                'public' => 'Public'
+                            ]),
                     ]),
                 Repeater::make('items_sidebar')
                     ->schema([
@@ -48,6 +54,12 @@ class NavigationResource extends Resource
                             ->placeholder('/example-page'),
                         Checkbox::make('external_link')
                             ->label('Open in new tab'),
+                        Select::make('show_for')
+                            ->options([
+                                'users' => 'Users',
+                                'everyone' => 'Everyone',
+                                'public' => 'Public'
+                            ]),
                     ]),
                 ColorPicker::make('bg_color')
                     ->label('Background Color'),
