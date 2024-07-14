@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "codeat3/blade-carbon-icons": "^2.28",
         "codeat3/blade-govicons": "^1.4",
         "codeat3/blade-phosphor-icons": "^2.2",
         "croustibat/filament-jobs-monitor": "^2.5",
