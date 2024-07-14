@@ -5,14 +5,24 @@ namespace App\Models;
 use App\Jobs\UpdateCurrenciesJob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Currency extends Model
 {
     use HasFactory;
+    use LogsActivity;
 
     protected $fillable = [
         'iso', 'name', 'symbol', 'symbol_position', 'is_active', 'last_updated', 'exchange_rate', 'is_default'
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable();
+        // Chain fluent methods for configuration options
+    }
 
     public function countries()
     {

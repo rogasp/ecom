@@ -47,6 +47,7 @@ class CurrencyResource extends Resource
                 ToggleColumn::make('is_default'),
                 ToggleColumn::make('is_active')
             ])
+            ->defaultSort('is_default', 'desc')
             ->filters([
                 //
             ])

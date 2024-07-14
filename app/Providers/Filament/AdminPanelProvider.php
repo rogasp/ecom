@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Home;
+use App\Filament\Resources\CategoryResource;
 use App\Filament\Resources\CityResource;
 use App\Filament\Resources\CountryResource;
 use App\Filament\Resources\CurrencyResource;
@@ -44,7 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->sidebarCollapsibleOnDesktop()
             ->databaseNotifications()
-            ->databaseNotificationsPolling('5s')
+            ->databaseNotificationsPolling('6000s')
             ->colors([
                 'primary' => Color::Cyan,
             ])
@@ -59,6 +60,7 @@ class AdminPanelProvider extends PanelProvider
                         ...Home::getNavigationItems(),
                     ]),
                     NavigationGroup::make('Content')->items([
+                        ...CategoryResource::getNavigationItems(),
                         ...CountryResource::getNavigationItems(),
                         ...CityResource::getNavigationItems(),
                         ...CurrencyResource::getNavigationItems(),
