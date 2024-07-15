@@ -8,6 +8,7 @@ use App\Filament\Resources\CityResource;
 use App\Filament\Resources\CountryResource;
 use App\Filament\Resources\CurrencyResource;
 use App\Filament\Resources\NavigationResource;
+use App\Filament\Resources\ProductResource;
 use App\Filament\Resources\UserResource;
 use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 use Croustibat\FilamentJobsMonitor\Resources\QueueMonitorResource;
@@ -59,8 +60,12 @@ class AdminPanelProvider extends PanelProvider
                     NavigationGroup::make('Dashboard')->items([
                         ...Home::getNavigationItems(),
                     ]),
-                    NavigationGroup::make('Content')->items([
+                    NavigationGroup::make('Products')->items([
                         ...CategoryResource::getNavigationItems(),
+                        ...ProductResource::getNavigationItems(),
+
+                    ]),
+                    NavigationGroup::make('Content')->items([
                         ...CountryResource::getNavigationItems(),
                         ...CityResource::getNavigationItems(),
                         ...CurrencyResource::getNavigationItems(),

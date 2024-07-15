@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        TiptapEditor::configureUsing(function (TiptapEditor $component) {
+           $component
+               ->blocks([
+
+               ]);
+        });
     }
 
     /**
