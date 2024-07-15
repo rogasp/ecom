@@ -18,6 +18,7 @@ use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Route;
 
 class NavigationResource extends Resource
 {
@@ -33,7 +34,13 @@ class NavigationResource extends Resource
                     ->schema([
                         TextInput::make('title')
                             ->required(),
-                        TextInput::make('url')
+                        Select::make('url')
+                            ->searchable()
+                            ->options(function () {
+                                return collect(Route::getRoutes()->getRoutesByMethod()['GET'])->mapWithKeys(function ($route) {
+                                    return [$route->getName() => $route->uri() ];
+                                });
+                            })
                             ->required()
                             ->placeholder('/example-page'),
                         Checkbox::make('external_link')
@@ -49,7 +56,13 @@ class NavigationResource extends Resource
                     ->schema([
                         TextInput::make('title')
                             ->required(),
-                        TextInput::make('url')
+                        Select::make('url')
+                            ->searchable()
+                            ->options(function () {
+                                return collect(Route::getRoutes()->getRoutesByMethod()['GET'])->mapWithKeys(function ($route) {
+                                    return [$route->getName() => $route->uri() ];
+                                });
+                            })
                             ->required()
                             ->placeholder('/example-page'),
                         Checkbox::make('external_link')
