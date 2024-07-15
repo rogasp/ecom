@@ -10,7 +10,6 @@ use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
@@ -24,8 +23,8 @@ use Filament\Tables\Table;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
+use Money\Money;
 
 class ProductResource extends Resource
 {
@@ -135,7 +134,8 @@ class ProductResource extends Resource
                     ->searchable(),
                 TextColumn::make('slug')->label(__('Slug'))
                     ->searchable(),
-                TextColumn::make('price')->label(__('Price')),
+                TextColumn::make('price')->label(__('Price'))
+                    ->formatStateUsing(fn ($state) => money($state)),
                 TextColumn::make('sku')->label(__('SKU'))
                     ->searchable(),
                 TextColumn::make('published_at')->label(__('Published At')),
