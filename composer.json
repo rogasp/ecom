@@ -35,7 +35,8 @@
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-medialibrary": "^11.7",
         "stichoza/google-translate-php": "^5.1",
-        "tomatophp/filament-translations": "^1.0"
+        "tomatophp/filament-translations": "^1.0",
+        "plesk/ext-laravel-integration": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
