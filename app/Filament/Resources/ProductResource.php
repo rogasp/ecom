@@ -69,7 +69,7 @@ class ProductResource extends Resource
                             ->icon('eos-content-lifecycle-management')
                         ->schema([
                             TiptapEditor::make('content')->profile('default')
-                                ->output(TiptapOutput::Json)
+                                ->output(TiptapOutput::Html)
                                 ->maxContentWidth('5xl')
                                 ->label(__('Content'))
                                 ->required(),
