@@ -2,8 +2,8 @@
 
 <p align="center">
 <a href="https://theswed.dev"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F18a424f6-91ec-40f9-a476-2480e260a7e1%3Fdate%3D1%26label%3D1%26commit%3D1&style=plastic" alt="Deployment"></a>
+<br>
 <a href="https://theswed.dev"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-
 </p>
 
 ## About ECOM
