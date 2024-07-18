@@ -32,6 +32,8 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'polaris-product-list-icon';
 
+    protected static ?string $recordTitleAttribute = 'title';
+
     public static function form(Form $form): Form
     {
         return $form

@@ -26,6 +26,7 @@ class NavigationResource extends Resource
 
     protected static ?string $navigationIcon = 'bi-menu-button-wide';
 
+
     public static function form(Form $form): Form
     {
         return $form

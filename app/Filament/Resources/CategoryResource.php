@@ -16,6 +16,8 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'carbon-collapse-categories';
 
+    protected static ?string $recordTitleAttribute = 'title';
+
     public static function form(Form $form): Form
     {
         return $form
