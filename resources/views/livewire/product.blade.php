@@ -16,7 +16,7 @@
                         </h2>
                         {!! tiptap_converter()->asHTML($product->content) !!}
                         <div>
-                            <x-button>
+                            <x-button wire:click="addToCart">
                                 Pay {{ money($product->price) }}
                             </x-button>
                         </div>
