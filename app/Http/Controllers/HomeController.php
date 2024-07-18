@@ -14,9 +14,12 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //dd(app(CartManager::class   ));
+        $cart = app(CartManager::class);
+        //$cart->add(1);
+        //$cart->create();
+        //dd($cart->getCart());
         return view('home', [
-            ''
+            'cart' => $cart
     ]);
     }
 }

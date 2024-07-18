@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Cart extends Model
 {
@@ -12,30 +13,23 @@ class Cart extends Model
 
     protected $fillable = [
         'cart_id',
-        'user_id',
+        'user_id'
     ];
 
-    public function add($cartID, $quantity, $productID)
+    public static function booted()
     {
-        $item = $this->items()
-            ->where('cart_id', $cartID)
-            ->where('product_id', $productID)
-            ->first();
-
-        if($item) {
-            $item->quantity += $quantity;
-            $item->save();
-        } else {
-            $this->items()->create([
-                'product_id' => $productID,
-                'quantity' => $quantity,
-            ]);
-        }
-
+        static::creating(function ($cart) {
+            $cart->cart_id = (string) Str::uuid();
+        });
     }
 
     public function items(): HasMany
     {
         return $this->hasMany(CartItem::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class); // Define a belongsTo relationship
     }
 }

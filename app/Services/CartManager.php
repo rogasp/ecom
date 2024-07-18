@@ -1,57 +1,58 @@
 <?php
 
 namespace App\Services;
+
 use App\Models\Cart;
+use App\Models\CartItem;
+use App\Models\User;
 use App\Services\Contracts\CartManager as CartInterface;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
-use function Pest\Laravel\instance;
 
 class CartManager implements CartInterface
 {
     protected $cart;
     protected $session;
-    
-    protected function __construct(protected SessionManager $sessionManager)
+
+    public function __construct(SessionManager $sessionManager)
     {
-        $this->session = $this->sessionManager->driver();
-        $this->cart = $this->getOrCreateCart();
+        $this->session = $sessionManager->driver();
     }
 
-    public function exists(): bool
+    public function exists()
     {
-        return $this->session->has(config('cart.session.cart_key')) && $this->cart;
+        return $this->session->has(config('cart.session.cart_key')) && $this->getCart();
     }
-    protected function getOrCreateCart()
+
+    public function create(?User $user = null)
     {
-        //$this->session->forget('cart_id');
-        $cartId = $this->session->get('cart_id');
+        $cart = Cart::make();
 
-        if($cartId) {
-            $cart = Cart::where('cart_id', $cartId)->first();
-
-            if(Auth::check() && is_null($cart->user_id)) {
-                $cart->user_id = Auth::id();
-                $cart->save();
-            }
-        } else {
-            $cart = Cart::create([
-                'cart_id' => Str::uuid(),
-                'user_id' => Auth::id() ?? null
-            ]);
-
-            $this->session->put('cart_id', $cart->cart_id);
-            $this->session->save();
-
+        if ($user) {
+            $cart->user()->associate($user);
         }
 
-        return $cart;
-    }
-    public function add()
-    {
+        $cart->save();
 
+        $this->session->put(config('cart.session.cart_key'), $cart->cart_id);
+    }
+
+    public function associateWithUser()
+    {
+        $this->cart->user_id = Auth::id();
+        $this->cart->save();
+    }
+
+
+    public function add($procductId, $quantity=1)
+    {
+        $item = CartItem::make();
+
+        $item->product_id = $procductId;
+        $item->cart_id = $this->getCart()->id;
+        $item->quantity = $quantity;
+
+        $item->save();
     }
 
     public function remove()
@@ -66,7 +67,11 @@ class CartManager implements CartInterface
 
     public function getCart()
     {
+        if($this->cart) {
+            return $this->cart;
+        }
 
+        return $this->cart = Cart::where('cart_id', $this->session->get(config('cart.session.cart_key')))->first();
     }
 
     public function getSubtotal()
