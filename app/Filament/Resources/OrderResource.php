@@ -45,11 +45,14 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('order_id')
+                    ->searchable()
                     ->label(__('Order id')),
                 TextColumn::make('email')
+                    ->searchable()
                     ->label(__('Email')),
                 SelectColumn::make('status')
                     ->options(OrderStatus::options())
+                    ->searchable()
                     ->label(__('OrderStatus')),
                 TextColumn::make('taxes')
                     ->label(__('Taxes'))
