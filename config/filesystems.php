@@ -58,6 +58,17 @@ return [
 
         'media' => [
             'driver' => 's3',
+            'key' => env('LINODE_KEY'),
+            'secret' => env('LINODE_SECRET'),
+            'endpoint' => env('LINODE_ENDPOINT'),
+            'region' => env('LINODE_REGION'),
+            'bucket' => env('LINODE_BUCKET'),
+            'visibility' => 'public',
+            'root' => 'media'
+        ],
+
+        'linode' => [
+            'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
