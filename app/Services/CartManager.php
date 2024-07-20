@@ -43,6 +43,11 @@ class CartManager implements CartInterface
         $this->cart->save();
     }
 
+    public function getItemsCount(): int
+    {
+        return $this->getCart()->items->count();
+    }
+
 
     public function add($procductId, $quantity=1)
     {
@@ -53,11 +58,6 @@ class CartManager implements CartInterface
         $item->quantity = $quantity;
 
         $item->save();
-    }
-
-    public function remove()
-    {
-
     }
 
     public function update()

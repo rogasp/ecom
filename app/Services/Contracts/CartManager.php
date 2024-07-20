@@ -14,8 +14,6 @@ interface CartManager
 
     public function create(?User $user);
 
-    public function remove();
-
     public function update();
 
     public function getCart();
