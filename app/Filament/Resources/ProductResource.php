@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Enums\ProductStatus;
 use App\Enums\ProductType;
 use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
@@ -24,7 +23,6 @@ use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
-use Money\Money;
 
 class ProductResource extends Resource
 {
@@ -82,6 +80,7 @@ class ProductResource extends Resource
                             Forms\Components\SpatieMediaLibraryFileUpload::make('images')
                                 ->label(__('Images'))
                                 ->image()
+                                ->disk('media')
                                 ->multiple()
                                 ->optimize('webp')
                                 ->imageEditor(),
