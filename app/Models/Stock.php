@@ -21,5 +21,20 @@ class Stock extends Model
         return $this->belongsTo(Product::class);
     }
 
+    public function decrementStock(int $quantity): bool
+    {
+        if ($this->quantity < $quantity) {
+            return false;
+        }
+
+        $this->decrement('quantity', $quantity);
+        return true;
+    }
+
+    public function incrementStock(int $quantity): void
+    {
+        $this->increment('quantity', $quantity);
+    }
+
 
 }

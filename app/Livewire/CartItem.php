@@ -2,11 +2,17 @@
 
 namespace App\Livewire;
 
+use App\Services\CartManager;
 use Livewire\Component;
 
 class CartItem extends Component
 {
     public $item;
+
+    public function getCartProperty()
+    {
+        return app(CartManager::class);
+    }
 
     public function remove()
     {
