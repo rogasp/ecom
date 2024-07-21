@@ -10,6 +10,7 @@ use App\Filament\Resources\CurrencyResource;
 use App\Filament\Resources\NavigationResource;
 use App\Filament\Resources\OrderResource;
 use App\Filament\Resources\ProductResource;
+use App\Filament\Resources\StockResource;
 use App\Filament\Resources\UserResource;
 use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 use Croustibat\FilamentJobsMonitor\Resources\QueueMonitorResource;
@@ -59,26 +60,27 @@ class AdminPanelProvider extends PanelProvider
             ->spa()
             ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
                 return $builder->groups([
-                    NavigationGroup::make('Dashboard')->items([
+                    NavigationGroup::make(__('Dashboard'))->items([
                         ...Home::getNavigationItems(),
                     ]),
                     NavigationGroup::make(__('Orders'))->items([
                         ...OrderResource::getNavigationItems(),
                     ]),
-                    NavigationGroup::make('Products')->items([
+                    NavigationGroup::make(__('Products'))->items([
                         ...CategoryResource::getNavigationItems(),
                         ...ProductResource::getNavigationItems(),
+                        ...StockResource::getNavigationItems(),
 
                     ]),
-                    NavigationGroup::make('Content')->items([
+                    NavigationGroup::make(__('Content'))->items([
                         ...CountryResource::getNavigationItems(),
                         ...CityResource::getNavigationItems(),
                         ...CurrencyResource::getNavigationItems(),
                     ]),
-                    NavigationGroup::make('Users & Roles')->items([
+                    NavigationGroup::make(__('Users & Roles'))->items([
                         ...UserResource::getNavigationItems(),
                     ]),
-                    NavigationGroup::make('Settings')->items([
+                    NavigationGroup::make(__('Settings'))->items([
                         ...NavigationResource::getNavigationItems(),
                         ...TranslationResource::getNavigationItems(),
                         ...QueueMonitorResource::getNavigationItems(),

@@ -59,7 +59,7 @@ class CartManager implements CartInterface
             $item->save();
             return;
         }
-        
+
         $item = CartItem::make();
 
         $item->product_id = $procductId;
