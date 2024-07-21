@@ -51,6 +51,15 @@ class CartManager implements CartInterface
 
     public function add($procductId, $quantity=1)
     {
+        $item = CartItem::where('product_id', $procductId)
+            ->where('cart_id', $this->getCart()->id)->first();
+
+        if ($item) {
+            $item->quantity += $quantity;
+            $item->save();
+            return;
+        }
+        
         $item = CartItem::make();
 
         $item->product_id = $procductId;

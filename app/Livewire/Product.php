@@ -19,5 +19,6 @@ class Product extends Component
     {
         $cart = app(CartManager::class);
         $cart->add(procductId: $this->product->id);
+        $this->dispatch('cartUpdated');
     }
 }

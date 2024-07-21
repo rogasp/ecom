@@ -12,6 +12,8 @@ class Navigation extends Component
     public array $navigationItems;
     public array $navigationItemsSidebar;
 
+    protected $listeners = ['cartUpdated' => '$refresh'];
+
     public function mount ()
     {
         $this->navigation = NavigationModel::where('is_active', true)->first();
