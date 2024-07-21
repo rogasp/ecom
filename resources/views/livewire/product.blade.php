@@ -2,7 +2,7 @@
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <div wire:ignore>
                     @if(count($product->getMedia()) > 1)
                         <x-gallery :media="$product->getMedia()" />
                     @else
